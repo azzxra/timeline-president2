@@ -1,0 +1,167 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url("img/bg-pancasila.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 20px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: bold;
+  color: rgb(250, 246, 227);
+  text-shadow:
+    0 0 5px gold,
+    0 0 10px gold,
+    0 0 20px #ffcc00;
+  animation: glow 1.5s infinite alternate;
+  margin-bottom: 40px;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px gold,
+      0 0 10px gold;
+  }
+  to {
+    text-shadow:
+      0 0 20px gold,
+      0 0 40px #ffcc00;
+  }
+}
+
+.timeline {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #f5e067, #fdd05e);
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.content {
+  background: white;
+  padding: 15px;
+  width: 45%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.content:hover {
+  transform: translateY(-5px);
+}
+
+.content img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.content h3 {
+  margin-top: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  animation: fadeBg 0.3s ease;
+}
+
+@keyframes fadeBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  animation: popUp 0.4s ease;
+}
+
+@keyframes popUp {
+  from {
+    transform: scale(0.7) translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hiasan bintang */
+.modal-content::before {
+  content: "★";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background: gold;
+  color: #6f1313;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.gold-line {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, rgb(248, 225, 93), #ffb700);
+  margin: 10px 0 15px;
+  border-radius: 5px;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: red;
+  transform: rotate(90deg);
+}
